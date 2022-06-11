@@ -1,35 +1,51 @@
 {
-  "name": "vite_vue3_ts",
-  "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
-    "prettier": "prettier --write .",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "vue": "^3.2.25"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^9.1.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.0",
-    "mrm": "^4.0.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,vue,js,jsx}": "eslint --cache --fix"
-  }
+    "name": "vite_vue3_ts",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc --noEmit && vite build",
+        "preview": "vite preview",
+        "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+        "prettier": "prettier --write .",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "nprogress": "^0.2.0",
+        "vue": "^3.2.25",
+        "vue-router": "4"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.42",
+        "@types/nprogress": "^0.2.0",
+        "@typescript-eslint/eslint-plugin": "^5.27.1",
+        "@typescript-eslint/parser": "^5.27.1",
+        "@vitejs/plugin-vue": "^2.3.3",
+        "dart-sass": "^1.25.0",
+        "eslint": "^8.17.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-vue": "^9.1.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.0",
+        "mrm": "^4.0.0",
+        "prettier": "^2.6.2",
+        "sass": "^1.52.3",
+        "typescript": "^4.5.4",
+        "vite": "^2.9.9",
+        "vue-tsc": "^0.34.7"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,vue,ts,tsx}": [
+            "yarn lint",
+            "prettier --write",
+            "git add"
+        ]
+    }
 }
